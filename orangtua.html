@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Orang Tua - MA MA'ARIF UDANAWU BLITAR</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+            color: #334155; /* text-slate-700 */
+        }
+        .section-header {
+            position: relative;
+            background-image: url('https://placehold.co/60a5fa/ffffff?text=Dashboard+Orang+Tua'); /* blue for header */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .section-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Overlay for readability */
+        }
+        .section-header h2 {
+            position: relative;
+            z-index: 10;
+            font-size: 3rem; /* text-5xl */
+            font-weight: bold;
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom styles for buttons, consistent with index.html */
+        .base-button {
+            font-weight: 600;
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .primary-button {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+        }
+        .primary-button:hover {
+            background-color: #1d4ed8; /* blue-700 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+        }
+        .accent-button {
+            background-color: #fcd34d; /* yellow-400 */
+            color: #1e3a8a; /* blue-900 */
+        }
+        .accent-button:hover {
+            background-color: #fbbf24; /* yellow-500 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(252, 211, 77, 0.4);
+        }
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid #2563eb; /* blue-600 */
+            color: #2563eb; /* blue-600 */
+        }
+        .secondary-button:hover {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Custom styles for navigation links, consistent with index.html */
+        .nav-link-style {
+            position: relative;
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            color: #475569;
+            transition: all 0.3s ease-in-out;
+            border-radius: 0.375rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .nav-link-style:hover {
+            color: #2563eb;
+            background-color: #eff6ff;
+        }
+        .nav-link-style::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link-style:hover::after {
+            width: 100%;
+        }
+        .nav-link-active {
+            color: #2563eb;
+            font-weight: 700;
+            background-color: #e0e7ff;
+            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.1);
+        }
+        .nav-link-active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header (Consistent with Homepage) -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo dan Nama Sekolah -->
+            <div class="flex items-center">
+                <img src="logo.png" alt="Logo Sekolah" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-lg md:text-lg font-extrabold text-blue-700 leading-tight">MA MA'ARIF <br>UDANAWU BLITAR</h1>
+            </div>
+
+            <!-- Navigasi Utama (Desktop) -->
+            <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                <a href="index.html" class="nav-link-style">Beranda</a>
+                <a href="about-us.html" class="nav-link-style">Tentang Kami</a>
+                <a href="akademik.html" class="nav-link-style">Akademik</a>
+                <a href="activities.html" class="nav-link-style">Kegiatan</a>
+                <a href="resources.html" class="nav-link-style nav-link-active">Sumber Daya</a>
+                <a href="alumni.html" class="nav-link-style">Alumni</a>
+                <a href="contact.html" class="nav-link-style">Kontak</a>
+            </nav>
+
+            
+
+            <!-- Tombol Hamburger (Mobile) -->
+            <button id="menu-button" class="md:hidden text-slate-600 hover:text-blue-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 border-t border-slate-200">
+            <nav class="flex flex-col space-y-3">
+                <a href="index.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Beranda</a>
+                <a href="about-us.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Tentang Kami</a>
+                <a href="akademik.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Akademik</a>
+                <a href="activities.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Kegiatan</a>
+                <a href="resources.html" class="block text-blue-600 font-medium py-2">Sumber Daya</a>
+                <a href="alumni.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Alumni</a>
+                <a href="contact.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Kontak</a>
+                
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Header for Dashboard Orang Tua -->
+    <section class="section-header">
+        <div class="container mx-auto px-4">
+            <h2>Dashboard Orang Tua</h2>
+        </div>
+    </section>
+
+    <!-- Parent Info & Child Selection -->
+    <section class="py-12 bg-slate-100">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
+            <div class="text-center md:text-left">
+                <img src="https://placehold.co/120x120/9ca3af/ffffff?text=Orang+Tua" alt="" class="w-32 h-32 rounded-full object-cover mx-auto md:mx-0 mb-4 shadow-md">
+                <h3 class="text-2xl font-bold text-blue-700">Selamat Datang, Bapak/Ibu [Nama Orang Tua]!</h3>
+                <p class="text-slate-600">Anda memiliki 2 anak terdaftar di MA MA'ARIF UDANAWU BLITAR.</p>
+            </div>
+            <div class="w-full md:w-auto">
+                <label for="child-select" class="block text-slate-700 text-lg font-semibold mb-2">Pilih Anak:</label>
+                <select id="child-select" class="w-full md:w-64 p-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="siswa1">Nama Siswa 1 (Kelas XII IPA 1)</option>
+                    <option value="siswa2">Nama Siswa 2 (Kelas X IPS 2)</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informasi Anak (Ringkasan) -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl font-bold text-blue-700 mb-8">Ringkasan Informasi Anak</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Kartu Informasi Anak 1 -->
+                <div class="card bg-blue-50 rounded-xl shadow-lg p-8 flex flex-col items-center">
+                    <div class="bg-blue-600 text-white p-4 rounded-full mb-6">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-blue-800 mb-4">Nilai Rata-rata</h4>
+                    <p class="text-5xl font-extrabold text-blue-600">89</p>
+                    <p class="text-slate-600 text-center text-sm">Diperbarui: 10 Juli 2025</p>
+                </div>
+
+                <!-- Kartu Informasi Anak 2 -->
+                <div class="card bg-green-50 rounded-xl shadow-lg p-8 flex flex-col items-center">
+                    <div class="bg-green-600 text-white p-4 rounded-full mb-6">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-green-800 mb-4">Kehadiran</h4>
+                    <p class="text-5xl font-extrabold text-green-600">98%</p>
+                    <p class="text-slate-600 text-center text-sm">Terakhir diperbarui: Hari ini</p>
+                </div>
+
+                <!-- Kartu Informasi Anak 3 -->
+                <div class="card bg-purple-50 rounded-xl shadow-lg p-8 flex flex-col items-center">
+                    <div class="bg-purple-600 text-white p-4 rounded-full mb-6">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-purple-800 mb-4">Tugas Selesai</h4>
+                    <p class="text-5xl font-extrabold text-purple-600">9/10</p>
+                    <p class="text-slate-600 text-center text-sm">Minggu ini</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Detail Lengkap Anak &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jadwal Pelajaran Anak Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-blue-700 text-center mb-8">Jadwal Pelajaran Anak Anda</h3>
+            <div class="bg-white rounded-xl shadow-lg p-6 mb-8">
+                <h4 class="text-xl font-semibold text-slate-800 mb-4">Senin, 15 Juli 2025</h4>
+                <ul class="space-y-3">
+                    <li class="flex items-center justify-between p-3 bg-blue-50 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <span class="px-3 py-1 bg-blue-200 text-blue-800 rounded-full text-sm font-semibold mr-3">08:00 - 09:30</span>
+                            <span class="font-medium text-slate-800">Matematika</span>
+                        </div>
+                        <span class="text-slate-600 text-sm">Ruang A101 - Bapak Budi</span>
+                    </li>
+                    <li class="flex items-center justify-between p-3 bg-green-50 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <span class="px-3 py-1 bg-green-200 text-green-800 rounded-full text-sm font-semibold mr-3">09:45 - 11:15</span>
+                            <span class="font-medium text-slate-800">Bahasa Indonesia</span>
+                        </div>
+                        <span class="text-slate-600 text-sm">Ruang A102 - Ibu Siti</span>
+                    </li>
+                    <li class="flex items-center justify-between p-3 bg-purple-50 rounded-lg shadow-sm">
+                        <div class="flex items-center">
+                            <span class="px-3 py-1 bg-purple-200 text-purple-800 rounded-full text-sm font-semibold mr-3">13:00 - 14:30</span>
+                            <span class="font-medium text-slate-800">Pendidikan Agama Islam</span>
+                        </div>
+                        <span class="text-slate-600 text-sm">Ruang A103 - Ustadz Ahmad</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center">
+                <a href="#" class="base-button secondary-button">Lihat Jadwal Lengkap Anak &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tugas & Ujian Anak Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-blue-700 text-center mb-8">Tugas & Ujian Anak Mendatang</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Tugas 1 -->
+                <div class="bg-blue-50 rounded-xl shadow-lg p-6 card">
+                    <h4 class="text-xl font-semibold text-slate-800 mb-2">Tugas Matematika: Aljabar Linear</h4>
+                    <p class="text-slate-600 text-sm mb-3">Batas Waktu: 20 Juli 2025</p>
+                    <p class="text-slate-700 mb-4">Kerjakan soal-soal latihan di buku halaman 120-125. Kumpulkan via platform belajar.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Detail Tugas &rarr;</a>
+                </div>
+                <!-- Ujian 1 -->
+                <div class="bg-green-50 rounded-xl shadow-lg p-6 card">
+                    <h4 class="text-xl font-semibold text-slate-800 mb-2">Ujian Harian Bahasa Indonesia</h4>
+                    <p class="text-slate-600 text-sm mb-3">Tanggal: 22 Juli 2025</p>
+                    <p class="text-slate-700 mb-4">Materi: Teks Eksposisi dan Argumentasi. Persiapkan diri dengan baik.</p>
+                    <a href="#" class="text-green-600 hover:text-green-800 font-semibold">Detail Ujian &rarr;</a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Semua Tugas & Ujian Anak</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nilai Akademik Anak Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-blue-700 text-center mb-8">Nilai Akademik Anak Terbaru</h3>
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <ul class="space-y-3">
+                    <li class="flex items-center justify-between p-3 bg-blue-50 rounded-lg shadow-sm">
+                        <span class="font-medium text-slate-800">Matematika</span>
+                        <span class="font-bold text-blue-600">88</span>
+                    </li>
+                    <li class="flex items-center justify-between p-3 bg-green-50 rounded-lg shadow-sm">
+                        <span class="font-medium text-slate-800">Bahasa Indonesia</span>
+                        <span class="font-bold text-green-600">92</span>
+                    </li>
+                    <li class="flex items-center justify-between p-3 bg-purple-50 rounded-lg shadow-sm">
+                        <span class="font-medium text-slate-800">Pendidikan Agama Islam</span>
+                        <span class="font-bold text-purple-600">95</span>
+                    </li>
+                    <li class="flex items-center justify-between p-3 bg-yellow-50 rounded-lg shadow-sm">
+                        <span class="font-medium text-slate-800">Fisika</span>
+                        <span class="font-bold text-yellow-600">85</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Transkrip Nilai Lengkap Anak</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengumuman Penting untuk Orang Tua Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-3xl font-bold text-blue-700 text-center mb-8">Pengumuman Penting untuk Anda</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Pengumuman 1 -->
+                <div class="bg-blue-50 rounded-xl shadow-lg p-6 card">
+                    <h4 class="text-xl font-semibold text-slate-800 mb-2">Informasi Pembayaran SPP Semester Ganjil</h4>
+                    <p class="text-slate-600 text-sm mb-3">Tanggal: 14 Juli 2025</p>
+                    <p class="text-slate-700 mb-4">Batas akhir pembayaran SPP semester ganjil adalah tanggal 30 Juli 2025. Mohon segera diselesaikan.</p>
+                    <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Detail Pengumuman &rarr;</a>
+                </div>
+                <!-- Pengumuman 2 -->
+                <div class="bg-green-50 rounded-xl shadow-lg p-6 card">
+                    <h4 class="text-xl font-semibold text-slate-800 mb-2">Undangan Pertemuan Orang Tua & Guru</h4>
+                    <p class="text-slate-600 text-sm mb-3">Tanggal: 12 Juli 2025</p>
+                    <p class="text-slate-700 mb-4">Kami mengundang Bapak/Ibu untuk hadir dalam pertemuan rutin untuk membahas perkembangan siswa.</p>
+                    <a href="#" class="text-green-600 hover:text-green-800 font-semibold">Detail Pengumuman &rarr;</a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Semua Pengumuman</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Komunikasi dengan Guru Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-12">Komunikasi dengan Guru</h3>
+            <p class="text-slate-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Hubungi guru mata pelajaran anak Anda secara langsung untuk diskusi atau pertanyaan.
+            </p>
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8">
+                <img src="https://placehold.co/300x200/60a5fa/ffffff?text=Komunikasi+Guru" alt="" class="w-full md:w-1/2 h-auto rounded-lg object-cover">
+                <div class="text-left">
+                    <p class="text-slate-700 mb-4">
+                        Anda dapat mengirim pesan langsung kepada guru, menjadwalkan pertemuan, atau melihat riwayat komunikasi.
+                    </p>
+                    <a href="#" class="base-button primary-button">Hubungi Guru</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Akses Cepat Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-12">Akses Cepat Lainnya</h3>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <a href="#" class="card bg-blue-50 p-6 rounded-xl shadow-lg flex flex-col items-center text-center text-blue-600 hover:text-blue-800">
+                    <svg class="w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    <span class="text-sm font-medium">Informasi Pembayaran</span>
+                </a>
+                <a href="#" class="card bg-green-50 p-6 rounded-xl shadow-lg flex flex-col items-center text-center text-green-600 hover:text-green-800">
+                    <svg class="w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    <span class="text-sm font-medium">Panduan Orang Tua</span>
+                </a>
+                <a href="#" class="card bg-purple-50 p-6 rounded-xl shadow-lg flex flex-col items-center text-center text-purple-600 hover:text-purple-800">
+                    <svg class="w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    <span class="text-sm font-medium">Kalender Akademik</span>
+                </a>
+                <a href="#" class="card bg-yellow-50 p-6 rounded-xl shadow-lg flex flex-col items-center text-center text-yellow-600 hover:text-yellow-800">
+                    <svg class="w-10 h-10 mb-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 4.5C7.58 4.5 4 8.08 4 12.5S7.58 20.5 12 20.5 20 16.92 20 12.5 16.42 4.5 12 4.5zm0 2c2.49 0 4.5 2.01 4.5 4.5S14.49 16.5 12 16.5 7.5 14.49 7.5 12S9.51 7 12 7zm0 2c1.38 0 2.5 1.12 2.5 2.5S13.38 14.5 12 14.5 9.5 13.38 9.5 12S10.62 9.5 12 9.5z"/></svg>
+                    <span class="text-sm font-medium">Berita Sekolah</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with Homepage) -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Kolom 1: Tentang Sekolah -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">MA MA'ARIF UDANAWU BLITAR</h5>
+                <p class="text-slate-400 text-sm">Mencetak generasi penerus bangsa yang cerdas, inovatif, dan berkarakter.</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M21.378 7.02l-1.012 3.829a.75.75 0 01-.75.651h-2.158a.75.75 0 01-.75-.651l-1.012-3.829h-2.16c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41l.756 2.859 1.012-3.829h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41zm-10.75 0l-1.012 3.829a.75.75 0 01-.75.651H6.708a.75.75 0 01-.75-.651l-1.012-3.829H3.78c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41l.756 2.859 1.012-3.829H9.22c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41zM12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Kolom 2: Tautan Cepat -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">Tautan Cepat</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Pendaftaran</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Kalender Akademik</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Galeri</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+
+            <!-- Kolom 3: Kontak Kami -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">Kontak Kami</h5>
+                <p class="text-slate-400 text-sm">Jl. Pendidikan No. 123, Kota Pelajar, Indonesia</p>
+                <p class="text-slate-400 text-sm mt-2">Email: info@maarifudanawu.sch.id</p>
+                <p class="text-slate-400 text-sm mt-2">Telepon: (021) 123-4567</p>
+            </div>
+
+            <!-- Kolom 4: Peta Lokasi (Placeholder) -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">Lokasi Kami</h5>
+                <div class="bg-slate-700 rounded-lg h-32 flex items-center justify-center text-slate-400 text-sm">
+                    <!-- Placeholder for embedded map -->
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-slate-500 text-sm mt-10 border-t border-slate-700 pt-8">
+            &copy; 2025 MA MA'ARIF UDANAWU BLITAR. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Mobile Menu -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

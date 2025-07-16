@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan - MA MA'ARIF UDANAWU BLITAR</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* bg-slate-50 */
+            color: #334155; /* text-slate-700 */
+        }
+        .section-header {
+            position: relative;
+            background-image: url('https://placehold.co//60a5fa/ffffff?text='); /* blue for header */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .section-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.4); /* Overlay for readability */
+        }
+        .section-header h2 {
+            position: relative;
+            z-index: 10;
+            font-size: 3rem; /* text-5xl */
+            font-weight: bold;
+        }
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom styles for buttons, consistent with index.html */
+        .base-button {
+            font-weight: 600;
+            padding: 0.75rem 2rem; /* py-3 px-8 */
+            border-radius: 9999px; /* rounded-full */
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .primary-button {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+        }
+        .primary-button:hover {
+            background-color: #1d4ed8; /* blue-700 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.4);
+        }
+        .accent-button {
+            background-color: #fcd34d; /* yellow-400 */
+            color: #1e3a8a; /* blue-900 */
+        }
+        .accent-button:hover {
+            background-color: #fbbf24; /* yellow-500 */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(252, 211, 77, 0.4);
+        }
+        .secondary-button {
+            background-color: transparent;
+            border: 2px solid #2563eb; /* blue-600 */
+            color: #2563eb; /* blue-600 */
+        }
+        .secondary-button:hover {
+            background-color: #2563eb; /* blue-600 */
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Custom styles for navigation links, consistent with index.html */
+        .nav-link-style {
+            position: relative;
+            padding: 0.5rem 0.75rem;
+            font-weight: 500;
+            color: #475569;
+            transition: all 0.3s ease-in-out;
+            border-radius: 0.375rem;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .nav-link-style:hover {
+            color: #2563eb;
+            background-color: #eff6ff;
+        }
+        .nav-link-style::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: #2563eb;
+            transition: width 0.3s ease-in-out;
+        }
+        .nav-link-style:hover::after {
+            width: 100%;
+        }
+        .nav-link-active {
+            color: #2563eb;
+            font-weight: 700;
+            background-color: #e0e7ff;
+            box-shadow: 0 2px 5px rgba(37, 99, 235, 0.1);
+        }
+        .nav-link-active::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header (Consistent with Homepage) -->
+    <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <!-- Logo dan Nama Sekolah -->
+            <div class="flex items-center">
+                <img src="logo.png" alt="Logo Sekolah" class="h-12 w-12 rounded-full mr-3">
+                <h1 class="text-lg md:text-lg font-extrabold text-blue-700 leading-tight">MA MA'ARIF <br>UDANAWU BLITAR</h1>
+            </div>
+
+            <!-- Navigasi Utama (Desktop) -->
+            <nav class="hidden md:flex space-x-4 lg:space-x-6 items-center">
+                <a href="index.html" class="nav-link-style">Beranda</a>
+                <a href="about-us.html" class="nav-link-style">Tentang Kami</a>
+                <a href="akademik.html" class="nav-link-style">Akademik</a>
+                <a href="activities.html" class="nav-link-style nav-link-active">Kegiatan</a>
+                <a href="resources.html" class="nav-link-style">Sumber Daya</a>
+                <a href="alumni.html" class="nav-link-style">Alumni</a>
+                <a href="contact.html" class="nav-link-style">Kontak</a>
+            </nav>
+
+            <!-- Tombol Login -->
+            <a href="#" class="hidden md:block base-button primary-button">Login</a>
+
+            <!-- Tombol Hamburger (Mobile) -->
+            <button id="menu-button" class="md:hidden text-slate-600 hover:text-blue-600 focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-4 px-4 border-t border-slate-200">
+            <nav class="flex flex-col space-y-3">
+                <a href="index.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Beranda</a>
+                <a href="about-us.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Tentang Kami</a>
+                <a href="akademik.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Akademik</a>
+                <a href="activities.html" class="block text-blue-600 font-medium py-2">Kegiatan</a>
+                <a href="resources.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Sumber Daya</a>
+                <a href="alumni.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Alumni</a>
+                <a href="contact.html" class="block text-slate-600 hover:text-blue-600 font-medium py-2">Kontak</a>
+                <a href="#" class="block base-button primary-button text-center mt-2">Login</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section Header for Kegiatan -->
+    <section class="section-header">
+        <div class="container mx-auto px-4">
+            <h2>Kegiatan & Kehidupan Sekolah</h2>
+        </div>
+    </section>
+
+    <!-- Berita & Pengumuman Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-12">Berita & Pengumuman Terbaru</h3>
+            <p class="text-slate-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Ikuti perkembangan terbaru dan informasi penting seputar kegiatan sekolah dan pengumuman resmi.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Berita 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card">
+                    <img src="https://placehold.co/600x300/a78bfa/ffffff?text=Kegiatan+Sekolah+1" alt="" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-2">Perayaan Hari Kemerdekaan di Sekolah</h4>
+                        <p class="text-slate-600 text-sm mb-4">17 Agustus 2025</p>
+                        <p class="text-slate-700 mb-4">Siswa dan guru merayakan Hari Kemerdekaan dengan berbagai lomba dan upacara bendera...</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Baca Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+                <!-- Berita 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card">
+                    <img src="https://placehold.co/600x300/fcd34d/ffffff?text=Pengumuman+Penting" alt="" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-2">Pemberitahuan Ujian Tengah Semester</h4>
+                        <p class="text-slate-600 text-sm mb-4">01 Agustus 2025</p>
+                        <p class="text-slate-700 mb-4">Jadwal dan ketentuan Ujian Tengah Semester (UTS) telah dirilis. Mohon diperhatikan...</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Baca Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+                <!-- Berita 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card">
+                    <img src="https://placehold.co/600x300/86efac/ffffff?text=Kunjungan+Edukasi" alt="" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h4 class="text-xl font-semibold text-slate-800 mb-2">Kunjungan Edukasi ke Museum Sejarah</h4>
+                        <p class="text-slate-600 text-sm mb-4">25 Juli 2025</p>
+                        <p class="text-slate-700 mb-4">Siswa kelas XI melakukan kunjungan edukasi ke museum untuk memperdalam materi sejarah...</p>
+                        <a href="#" class="text-blue-600 hover:text-blue-800 font-semibold">Baca Selengkapnya &rarr;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Semua Berita & Pengumuman</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kalender Akademik & Kegiatan Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-12">Kalender Akademik & Kegiatan</h3>
+            <p class="text-slate-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Lihat semua jadwal penting, mulai dari hari libur, ujian, hingga acara sekolah dan ekstrakurikuler.
+            </p>
+            <div class="bg-white rounded-xl shadow-lg p-8 max-w-5xl mx-auto">
+                <img src="https://placehold.co/1000x600/60a5fa/ffffff?text=Kalender+Akademik" alt="" class="w-full h-auto rounded-lg mb-6">
+                <a href="#" class="base-button primary-button">Unduh Kalender Lengkap (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ekstrakurikuler Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-12">Ekstrakurikuler</h3>
+            <p class="text-slate-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Kembangkan bakat dan minat Anda di luar jam pelajaran melalui berbagai pilihan ekstrakurikuler kami.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Ekskul 1 -->
+                <div class="bg-blue-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card">
+                    <img src="https://placehold.co/80x80/60a5fa/ffffff?text=Pramuka" alt="" class="mb-4 rounded-full">
+                    <h4 class="text-xl font-semibold text-blue-800 mb-2">Pramuka</h4>
+                    <p class="text-slate-600 text-sm">Membangun kemandirian, kepemimpinan, dan kecintaan alam.</p>
+                </div>
+                <!-- Ekskul 2 -->
+                <div class="bg-green-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card">
+                    <div class="bg-green-600 text-white p-4 rounded-full mb-6">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-green-800 mb-2">Futsal Club</h4>
+                    <p class="text-slate-600 text-sm">Mengembangkan keterampilan bermain futsal dan sportivitas.</p>
+                </div>
+                <!-- Ekskul 3 -->
+                <div class="bg-purple-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card">
+                    <div class="bg-purple-600 text-white p-4 rounded-full mb-6">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-purple-800 mb-2">Rohis (Kerohanian Islam)</h4>
+                    <p class="text-slate-600 text-sm">Meningkatkan pemahaman agama dan kegiatan sosial keagamaan.</p>
+                </div>
+                <!-- Ekskul 4 -->
+                <div class="bg-yellow-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card">
+                    <img src="https://placehold.co/80x80/fcd34d/ffffff?text=Jurnalistik" alt="" class="mb-4 rounded-full">
+                    <h4 class="text-xl font-semibold text-yellow-800 mb-2">Jurnalistik</h4>
+                    <p class="text-slate-600 text-sm">Belajar menulis, fotografi, dan videografi untuk majalah sekolah.</p>
+                </div>
+                <!-- Ekskul 5 -->
+                <div class="bg-blue-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card">
+                    <img src="https://placehold.co/80x80/60a5fa/ffffff?text=Seni" alt="" class="mb-4 rounded-full">
+                    <h4 class="text-xl font-semibold text-blue-800 mb-2">Seni Tari & Musik</h4>
+                    <p class="text-slate-600 text-sm">Mengembangkan bakat seni tari tradisional dan modern, serta musik.</p>
+                </div>
+                <!-- Ekskul 6 -->
+                <div class="bg-green-50 rounded-xl shadow-lg p-6 flex flex-col items-center text-center card">
+                    <div class="bg-green-600 text-white p-4 rounded-full mb-6">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253z" clip-rule="evenodd"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-semibold text-green-800 mb-2">Karya Ilmiah Remaja (KIR)</h4>
+                    <p class="text-slate-600 text-sm">Melakukan penelitian sederhana dan mengembangkan proyek ilmiah.</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Semua Ekstrakurikuler</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Foto & Video Section -->
+    <section class="py-16 bg-slate-50">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold text-blue-700 mb-12">Galeri Foto & Video</h3>
+            <p class="text-slate-700 max-w-3xl mx-auto mb-10 leading-relaxed">
+                Lihat momen-momen terbaik dan kegiatan seru di MA MA'ARIF UDANAWU BLITAR.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Galeri Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Upacara+Bendera" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold text-slate-800">Upacara Bendera Rutin</h4>
+                        <p class="text-slate-600 text-sm">Minggu, 07 Juli 2025</p>
+                    </div>
+                </div>
+                <!-- Galeri Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card">
+                    <img src="https://placehold.co/600x400/fcd34d/ffffff?text=Lomba+Kelas" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold text-slate-800">Kegiatan Lomba Antar Kelas</h4>
+                        <p class="text-slate-600 text-sm">Sabtu, 06 Juli 2025</p>
+                    </div>
+                </div>
+                <!-- Galeri Item 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card">
+                    <img src="https://placehold.co/600x400/86efac/ffffff?text=Studi+Tour" alt="" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h4 class="text-lg font-semibold text-slate-800">Studi Tour Edukasi</h4>
+                        <p class="text-slate-600 text-sm">Selasa, 02 Juli 2025</p>
+                    </div>
+                </div>
+                <!-- Tambah lebih banyak item galeri di sini -->
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="base-button primary-button">Lihat Galeri Lengkap</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (Consistent with Homepage) -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Kolom 1: Tentang Sekolah -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">MA MA'ARIF UDANAWU BLITAR</h5>
+                <p class="text-slate-400 text-sm">Mencetak generasi penerus bangsa yang cerdas, inovatif, dan berkarakter.</p>
+                <div class="flex space-x-4 mt-6">
+                    <a href="#" class="text-slate-400 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M21.378 7.02l-1.012 3.829a.75.75 0 01-.75.651h-2.158a.75.75 0 01-.75-.651l-1.012-3.829h-2.16c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41l.756 2.859 1.012-3.829h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41zm-10.75 0l-1.012 3.829a.75.75 0 01-.75.651H6.708a.75.75 0 01-.75-.651l-1.012-3.829H3.78c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41l.756 2.859 1.012-3.829H9.22c-.414 0-.75-.336-.75-.75s.336-.75.75-.75h2.16c.414 0 .75.336.75.75s-.336.75-.75.75h-1.41zM12 2c-5.523 0-10 4.477-10 10s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+                    </a>
+                    <a href="#" class="text-slate-400 hover:text-white transition duration-300">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33V22H12c5.523 0 10-4.477 10-10S17.523 2 12 2z" clip-rule="evenodd"></path></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Kolom 2: Tautan Cepat -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">Tautan Cepat</h5>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Pendaftaran</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Kalender Akademik</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Galeri</a></li>
+                    <li><a href="#" class="text-slate-400 hover:text-white transition duration-300">Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+
+            <!-- Kolom 3: Kontak Kami -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">Kontak Kami</h5>
+                <p class="text-slate-400 text-sm">Jl. Pendidikan No. 123, Kota Pelajar, Indonesia</p>
+                <p class="text-slate-400 text-sm mt-2">Email: info@maarifudanawu.sch.id</p>
+                <p class="text-slate-400 text-sm mt-2">Telepon: (021) 123-4567</p>
+            </div>
+
+            <!-- Kolom 4: Peta Lokasi (Placeholder) -->
+            <div>
+                <h5 class="text-xl font-semibold mb-4 text-blue-300">Lokasi Kami</h5>
+                <div class="bg-slate-700 rounded-lg h-32 flex items-center justify-center text-slate-400 text-sm">
+                    <!-- Placeholder for embedded map -->
+                </div>
+            </div>
+        </div>
+        <div class="text-center text-slate-500 text-sm mt-10 border-t border-slate-700 pt-8">
+            &copy; 2025 MA MA'ARIF UDANAWU BLITAR. Hak Cipta Dilindungi.
+        </div>
+    </footer>
+
+    <!-- JavaScript untuk Mobile Menu -->
+    <script>
+        document.getElementById('menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
