@@ -6,7 +6,6 @@ import Footer from "@/components/landing_page/footer";
 export default function RootLayout({ children }) {
     return (
         <>
-            <Squares />
             <Navbar />
             {children}
             <Footer />

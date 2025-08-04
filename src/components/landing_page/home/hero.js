@@ -1,11 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { NavbarSpacer } from "../navbar";
+import { cn, safeareaPadding } from "@/lib/utils";
 
 export default function HeroSection(){
-    return <div className="px-[var(--safearea-width)] h-dvh flex flex-col">
+    return <div className={cn(safeareaPadding(), "h-dvh flex flex-col")}>
                     <NavbarSpacer />
-                    <main className="flex flex-row items-center justify-between flex-1">
-                        <div>
+                    <main className="grid grid-cols-1 md:grid-cols-2 flex-1">
+                        <div className="flex flex-col justify-center">
                             <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight text-balance">
                                 Lorem ipsum dolor sit amet, <br />
                                 consectetur adipiscing elit
@@ -20,6 +21,7 @@ export default function HeroSection(){
                                 Join Sekarang!
                             </Button>
                         </div>
+                        <div></div>
                     </main>
                 </div>
 }

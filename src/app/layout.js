@@ -1,3 +1,5 @@
+import { Plus_Jakarta_Sans } from 'next/font/google'
+
 export const metadata = {
     title: {
         default: "MA Ma'arif Udanawu",
@@ -7,10 +9,15 @@ export const metadata = {
         "Portal resmi MA Ma'arif Udanawu Blitar yang memuat informasi sekolah, program unggulan, riset, dan keterampilan siswa.",
 };
 
+const lato = Plus_Jakarta_Sans({
+    subsets: ["latin"],
+    weight: "400",
+});
+
 export default function RootLayout({children}) {
     return (
-        <html lang="id">
-            <body className="relative  text-slate-800">{children}</body>
+        <html lang="id" className={lato.className}>
+            <body className="relative">{children}</body>
         </html>
     );
 }

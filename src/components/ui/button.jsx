@@ -38,7 +38,7 @@ function Button({ className, variant, size, asChild = false, ...props }) {
     const Comp = asChild ? Slot : "button";
 
     return (
-        <motion.div className="inline-block" whileHover={{ scale: 1.025 }} whileTap={{ scale: 1 }}>
+        <motion.div className="inline-block" whileHover={{ scale: 1.025 }} whileTap={{ scale: 1.025 }}>
             <Comp
                 data-slot="button"
                 className={cn(buttonVariants({ variant, size, className }))}

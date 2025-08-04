@@ -1,10 +1,11 @@
-import { cn } from "@/lib/utils";
+import { cn, safeareaPadding } from "@/lib/utils";
 
 export default function Section({ className, children }){
     return (
         <section
             className={cn(
-                "px-[var(--safearea-width)] py-12 bg-white flex flex-col",
+                safeareaPadding(),
+                "py-8 bg-white flex flex-col",
                 className
             )}
         >

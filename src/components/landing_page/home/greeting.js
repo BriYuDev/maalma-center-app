@@ -1,10 +1,10 @@
 import Section from "../section";
 
 export default function GreetingSection(){
-    return <Section className="bg-slate-800 text-slate-400">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:">
+    return <Section>
+                    <div className="grid grid-cols-1 md:grid-cols-2">
                         <div className="order-2 md:order-1">
-                            <h3 className="text-blue-300 scroll-m-20 pb-4 text-3xl font-semibold first:mt-0">
+                            <h3 className="scroll-m-20 pb-4 text-3xl font-semibold first:mt-0">
                                 Sambutan Kepala Sekolah
                             </h3>
                             <p className="leading-7 text-justify">

@@ -1,9 +1,10 @@
-import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { cn, safeareaPadding } from "@/lib/utils";
 import Link from "next/link";
+import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
 
-export default function Footer() {
+export default function Footer(){
     return (
-        <footer className="bg-slate-900 text-white px-[var(--safearea-width)]">
+        <footer className={cn(safeareaPadding(), "bg-slate-900 text-white")}>
             <div className="container mx-auto grid grid-cols-1 lg:grid-cols-4 gap-8 py-12">
                 <div className="col-span-2">
                     <h5 className="text-xl font-semibold mb-4 text-blue-300">
@@ -58,4 +59,4 @@ export default function Footer() {
             </div>
         </footer>
     );
-}
+};
