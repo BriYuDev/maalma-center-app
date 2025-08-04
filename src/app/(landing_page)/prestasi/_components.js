@@ -1,5 +1,6 @@
 "use client";
 
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import {
     Carousel,
@@ -130,9 +131,31 @@ export const Sidebar = ({ className, ...props }) => {
                     <Button type="submit" size="icon" variant="outline">
                         <ListFilterIcon />
                     </Button>
-                    <Button type="submit" size="icon" variant="outline">
-                        <FilterIcon />
-                    </Button>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button type="submit" size="icon" variant="outline">
+                                <FilterIcon />
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-64">
+                            {categories.map((group) => (
+                                <DropdownMenuSub key={group.title}>
+                                    <DropdownMenuSubTrigger>
+                                        {group.title}
+                                    </DropdownMenuSubTrigger>
+                                    <DropdownMenuSubContent>
+                                        {group.items.map((item) => (
+                                            <DropdownMenuCheckboxItem
+                                                key={item.value}
+                                            >
+                                                {item.label}
+                                            </DropdownMenuCheckboxItem>
+                                        ))}
+                                    </DropdownMenuSubContent>
+                                </DropdownMenuSub>
+                            ))}
+                        </DropdownMenuContent>{" "}
+                    </DropdownMenu>
                 </div>
             </div>
             <div className="hidden flex-col mt-6 lg:flex">
@@ -141,7 +164,6 @@ export const Sidebar = ({ className, ...props }) => {
         </div>
     );
 };
-
 export const Kategori = ({ className }) => {
     return categories.map((data, i) => (
         <div key={"category" + i} className={className}>
