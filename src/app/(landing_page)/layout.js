@@ -1,7 +1,7 @@
-import Navbar from "@/components/landing_page/navbar";
-import Squares from "@/components/landing_page/background";
-import "../globals.css";
-import Footer from "@/components/landing_page/footer";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import { ChatWidget } from "@/components/ui/chat-widget";
+
 
 export default function RootLayout({ children }) {
     return (
@@ -9,6 +9,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             {children}
             <Footer />
+            <ChatWidget/>
         </>
     );
 }

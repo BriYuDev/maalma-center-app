@@ -1,4 +1,4 @@
-import Page from "@/components/landing_page/page";
+import Page from "@/components/page";
 import {RisetSlider} from "./_components";
 
 const title = "Program Riset";

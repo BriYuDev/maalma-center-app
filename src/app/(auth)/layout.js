@@ -1,4 +1,4 @@
-import Squares from "@/components/landing_page/background";
+import Squares from "@/components/background";
 import "../globals.css";
 
 export default function AuthLayout({ children }) {

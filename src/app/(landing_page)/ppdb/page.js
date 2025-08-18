@@ -32,7 +32,7 @@ import {
     Image,
     ChevronRight,
 } from "lucide-react";
-import Page from "@/components/landing_page/page";
+import Page from "@/components/page";
 import Link from "next/link";
 
 // Metadata untuk SEO dan judul tab browser

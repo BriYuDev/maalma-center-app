@@ -1,4 +1,6 @@
-import { Plus_Jakarta_Sans } from 'next/font/google'
+import { Geist } from 'next/font/google'
+import "./globals.css";
+import Head from 'next/head';
 
 export const metadata = {
     title: {
@@ -9,7 +11,7 @@ export const metadata = {
         "Portal resmi MA Ma'arif Udanawu Blitar yang memuat informasi sekolah, program unggulan, riset, dan keterampilan siswa.",
 };
 
-const lato = Plus_Jakarta_Sans({
+const lato = Geist({
     subsets: ["latin"],
     weight: "400",
 });

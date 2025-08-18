@@ -20,21 +20,11 @@ export function formatNatural(dateInput) {
     const date = dayjs(dateInput);
 
     const diffDays = date.diff(now, "day");
-    const absDiff = Math.abs(diffDays);
 
     if (date.isSame(now, "day")) return "hari ini";
     if (diffDays === -1) return "kemarin";
     if (diffDays === -2) return "kemarin lusa";
-    if (diffDays === 1) return "besok";
-    if (diffDays === 2) return "lusa";
-    if (diffDays < -2 && absDiff < 7) return `${absDiff} hari lalu`;
-    if (diffDays > 2 && absDiff < 7) return `dalam ${absDiff} hari`;
-    if (diffDays <= -7 && absDiff < 14) return `minggu lalu`;
-    if (diffDays >= 7 && absDiff < 14) return `minggu depan`;
-    if (diffDays < 0) return `${absDiff} hari lalu`;
-    if (diffDays > 0) return `dalam ${absDiff} hari`;
-
-    return date.fromNow(); // fallback
+    return date.format("dddd, DD MMMM YYYY");
 }
 
 export function capitalize(str) {
