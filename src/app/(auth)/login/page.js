@@ -21,16 +21,25 @@ import {
 import { Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 import Head from "next/head";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
     const [showPassword, setShowPassword] = useState(false);
     const [userType, setUserType] = useState("");
     const [identifier, setIdentifier] = useState("");
     const [password, setPassword] = useState("");
+    const router = useRouter();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log("Login", { userType, identifier, password });
+
+        // Redirect based on user type
+        if (userType === "parent") {
+            router.push("/dashboard/ortu");
+        } else if (userType === "student") {
+            router.push("/dashboard");
+        }
     };
 
     return (
@@ -40,7 +49,7 @@ export default function LoginPage() {
             </Head>
             <div className="min-h-screen relative flex items-center justify-center p-4">
                 <div className="absolute inset-0 bg-black/20" />
-                <div className="absolute inset-0 bg-[url('/auth_bg.png')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('/auth_bg.webp')] bg-cover bg-center opacity-50" />
 
                 <Card className="w-full max-w-md relative z-10 shadow-2xl border bg-white/95 backdrop-blur-sm">
                     <CardHeader className="text-center pb-2">
@@ -66,7 +75,7 @@ export default function LoginPage() {
                                     onValueChange={setUserType}
                                     required
                                 >
-                                    <SelectTrigger className="bg-white border-gray-300">
+                                    <SelectTrigger className="bg-white border-gray-300 w-full">
                                         <SelectValue placeholder="Pilih jenis pengguna" />
                                     </SelectTrigger>
                                     <SelectContent>
@@ -145,21 +154,17 @@ export default function LoginPage() {
                                 </div>
                             </div>
 
-                            <Button
-                                type="submit"
-                                className="w-full bg-black hover:bg-gray-800 text-white"
-                                asChild
-                            >
-                                <Link href="/login">Masuk</Link>
+                            <Button type="submit" className="w-full">
+                                Masuk
                             </Button>
                         </form>
 
-                        <div className="text-center">
+                        <div className="text-center text-sm">
                             <p className="text-gray-600">
                                 Belum punya akun?{" "}
                                 <Link
                                     href="/register"
-                                    className="text-black hover:text-gray-800 font-medium underline"
+                                    className="text-black hover:text-gray-80 font-medium underline"
                                 >
                                     Daftar di sini
                                 </Link>

@@ -5,7 +5,7 @@ import * as motion from "motion/react-client";
 export default function GreetSection(){
     return (
         <Section
-            className="relative border-t flex-col md:flex-row z-10 gap-6 lg:gap-0"
+            className="relative border-t flex-col md:flex-row items-center md:items-stretch z-10 gap-6 lg:gap-0"
             style={{
                 background: 'url("/landing_page/sekolah.webp")',
                 backgroundSize: "cover",
@@ -15,9 +15,9 @@ export default function GreetSection(){
         >
             <div className="absolute w-full h-full bg-white/50 top-0 left-0 -z-5"></div>
             <div
-                className="w-full md:max-w-[400px] lg:max-w-[500px] h-[300px] md:h-auto"
+                className="w-full scale-140 md:scale-100 lg:scale-150 max-w-[200px] md:max-w-[400px] lg:max-w-[500px] h-[300px] md:h-auto"
                 style={{
-                    background: 'url("/landing_page/faiz.jpeg")',
+                    background: 'url("/landing_page/faiz.webp")',
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
                     backgroundPosition: "center",

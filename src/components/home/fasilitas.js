@@ -85,7 +85,7 @@ export default function FasilitasSection(){
                     initial="start"
                     animate="end"
                     transition={{
-                        duration: 50, // Adjust the duration to change the speed
+                        duration: 75, // Adjust the duration to change the speed
                         repeat: Infinity, // Repeat the animation forever
                         repeatType: "loop", // Loop back to the start
                         ease: "linear", // Keep a constant speed
@@ -145,23 +145,20 @@ export default function FasilitasSection(){
                     <span className="font-semibold">
                         MA Ma'arif Udanawu Blitar
                     </span>{" "}
-                    memiliki berbagai fasilitas yang mendukung kegiatan belajar
-                    mengajar dan pengembangan siswa, seperti perpustakaan,
-                    laboratorium keterampilan, dan MIPA, masjid, ruang kelas
-                    yang memadai, ruang BP, ruang TU, ruang kepala sekolah dan
-                    guru, ruang OSIS, lapangan olahraga seperti basket, voli,
-                    dan sepak bola, serta pendukung lainnya seperti CCTV, dan
-                    kamar mandi/toilet yang bersih dan nyaman.
-                    Fasilitas-fasilitas ini dirancang untuk menciptakan
-                    lingkungan belajar yang kondusif dan mendukung perkembangan
-                    siswa secara efisien. Dengan adanya fasilitas yang lengkap
-                    dan memadai, MA Ma'arif Udanawu Blitar berkomitmen untuk
-                    terus meningkatkan kualitas pendidikan dan memberikan
-                    pengalaman belajar yang terbaik bagi siswa-siswanya.
-                    Fasilitas-fasilitas ini diharapkan dapat membantu siswa
-                    mengembangkan potensi mereka secara maksimal dan menjadi
-                    generasi yang unggul dalam bidang akademik dan memiliki
-                    karakter yang kuat berdasarkan nilai-nilai Islam.
+                    menyediakan fasilitas yang sangat lengkap untuk mendukung
+                    secara penuh kegiatan belajar-mengajar dan pengembangan
+                    potensi siswa. Lingkungan belajar dirancang agar kondusif
+                    dan nyaman dengan adanya fasilitas utama seperti
+                    perpustakaan, laboratorium MIPA untuk sains, dan
+                    laboratorium keterampilan untuk praktik. Untuk mendukung
+                    pengembangan jasmani dan rohani, tersedia masjid yang
+                    representatif serta lapangan olahraga serbaguna untuk
+                    basket, voli, dan sepak bola. Selain itu, sekolah juga
+                    dilengkapi dengan ruang kelas yang memadai, jajaran ruang
+                    kantor (Kepala Sekolah, Guru, TU), ruang OSIS, sistem
+                    keamanan CCTV, dan toilet yang selalu terjaga kebersihannya.
+                    Dengan kelengkapan ini, siswa diharapkan dapat belajar
+                    dengan optimal dan meraih prestasi terbaiknya.
                 </motion.p>
             </div>
         </Section>

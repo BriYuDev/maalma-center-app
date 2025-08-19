@@ -31,7 +31,6 @@ const items = [
         job: "Koordinator Sarana Prasarana",
     },
     {
-        avatar: "faiz.png",
         name: "Badriyah, S.Psi.",
         job: "Bimbingan Konseling",
     },

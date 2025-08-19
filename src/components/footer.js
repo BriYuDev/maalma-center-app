@@ -1,6 +1,6 @@
 import { cn, safeareaPadding } from "@/lib/utils";
 import Link from "next/link";
-import { SiInstagram, SiYoutube } from "@icons-pack/react-simple-icons";
+import { SiInstagram, SiTiktok, SiYoutube } from "@icons-pack/react-simple-icons";
 
 export default function Footer() {
     return (
@@ -21,9 +21,12 @@ export default function Footer() {
                 <div>
                     <h5 className="text-xl font-semibold">Alamat</h5>
                     <ul className="text-slate-500 text-sm flex flex-col gap-2 mt-2">
-                        <li>Jl. Pendidikan No. 123, Kota Pelajar, Indonesia</li>
-                        <li>Email: info@maarifudanawu.sch.id</li>
-                        <li>Telepon: (021) 123-4567</li>
+                        <li>
+                            JL. Raya Bakung, Kec. Udanawu, Kabupaten Blitar,
+                            Jawa Timur 66154
+                        </li>
+                        <li>Email: ma_almaa@yahoo.com</li>
+                        <li>Telepon: (0342) 552350</li>
                     </ul>
                 </div>
 
@@ -45,6 +48,14 @@ export default function Footer() {
                                 className="flex flex-row gap-2 items-center"
                             >
                                 <SiInstagram className="size-4" /> @maalmablitar
+                            </Link>
+                        </li>
+                        <li>
+                            <Link
+                                href="https://vt.tiktok.com/ZSJxXnV24/"
+                                className="flex flex-row gap-2 items-center"
+                            >
+                                <SiTiktok className="size-4" /> @maalmablitar
                             </Link>
                         </li>
                     </ul>

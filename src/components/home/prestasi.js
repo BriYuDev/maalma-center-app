@@ -74,15 +74,15 @@ const items = [
         image: "/landing_page/prestasi3.webp",
     },
     {
-        title: "Juara",
+        title: "Juara 2 Catur Putra Putri - PORSENI 2025",
         image: "/landing_page/prestasi4.webp",
     },
     {
-        title: "Juara",
+        title: "Juara 1 Piala SOERATIN - U17 PSSI 2024",
         image: "/landing_page/prestasi5.webp",
     },
     {
-        title: "Juara",
+        title: "Juara 3 Bulutangkis - PORSENI 2023",
         image: "/landing_page/prestasi6.webp",
     },
 ];

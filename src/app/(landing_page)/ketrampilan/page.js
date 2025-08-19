@@ -16,427 +16,90 @@ export default function KetrampilanPage() {
     return (
         <Page title={title} className="flex flex-col">
             <KetrampilanItem
-                icon="https://placehold.co/50"
+                icon="/ketrampilan/rpl.webp"
                 title="Rekayasa Perangkat Lunak (RPL)"
             >
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The king, seeing how much happier his subjects were,
-                    realized the error of his ways and repealed the joke tax.
+                <p class="mt-2 mb-4">
+                    Rekayasa Perangkat Lunak adalah mata pelajaran yang
+                    mempelajari tentang pengembangan perangkat lunak dengan
+                    menggunakan prinsip-prinsip rekayasa.
                 </p>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full mt-4"
-                    defaultValue="item-1"
-                >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-semibold">
-                            Product Information
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                Our flagship product combines cutting-edge
-                                technology with sleek design. Built with premium
-                                materials, it offers unparalleled performance
-                                and reliability.
-                            </p>
-                            <p>
-                                Key features include advanced processing
-                                capabilities, and an intuitive user interface
-                                designed for both beginners and experts.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-semibold">
-                            Shipping Details
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We offer worldwide shipping through trusted
-                                courier partners. Standard delivery takes 3-5
-                                business days, while express shipping ensures
-                                delivery within 1-2 business days.
-                            </p>
-                            <p>
-                                All orders are carefully packaged and fully
-                                insured. Track your shipment in real-time
-                                through our dedicated tracking portal.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-semibold">
-                            Return Policy
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We stand behind our products with a
-                                comprehensive 30-day return policy. If
-                                you&apos;re not completely satisfied, simply
-                                return the item in its original condition.
-                            </p>
-                            <p>
-                                Our hassle-free return process includes free
-                                return shipping and full refunds processed
-                                within 48 hours of receiving the returned item.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <ul class="list-disc list-inside space-y-2">
+                    <li class="marker:text-red-500">Pengembangan Aplikasi</li>
+                    <li class="marker:text-blue-500">Pemrograman</li>
+                    <li class="marker:text-green-500">Desain Sistem</li>
+                </ul>
             </KetrampilanItem>
             <KetrampilanItem
-                icon="https://placehold.co/50"
+                icon="/ketrampilan/dg.webp"
                 title="Desain Grafis (DG)"
                 reverse
             >
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The king, seeing how much happier his subjects were,
-                    realized the error of his ways and repealed the joke tax.
+                <p class="mt-2 mb-4">
+                    Desain Grafis adalah mata pelajaran yang mempelajari tentang
+                    pembuatan desain visual untuk berbagai keperluan.
                 </p>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full mt-4"
-                    defaultValue="item-1"
-                >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-semibold">
-                            Product Information
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                Our flagship product combines cutting-edge
-                                technology with sleek design. Built with premium
-                                materials, it offers unparalleled performance
-                                and reliability.
-                            </p>
-                            <p>
-                                Key features include advanced processing
-                                capabilities, and an intuitive user interface
-                                designed for both beginners and experts.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-semibold">
-                            Shipping Details
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We offer worldwide shipping through trusted
-                                courier partners. Standard delivery takes 3-5
-                                business days, while express shipping ensures
-                                delivery within 1-2 business days.
-                            </p>
-                            <p>
-                                All orders are carefully packaged and fully
-                                insured. Track your shipment in real-time
-                                through our dedicated tracking portal.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-semibold">
-                            Return Policy
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We stand behind our products with a
-                                comprehensive 30-day return policy. If
-                                you&apos;re not completely satisfied, simply
-                                return the item in its original condition.
-                            </p>
-                            <p>
-                                Our hassle-free return process includes free
-                                return shipping and full refunds processed
-                                within 48 hours of receiving the returned item.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <ul class="list-disc list-inside space-y-2">
+                    <li class="marker:text-purple-500">
+                        Pembuatan Desain Visual
+                    </li>
+                    <li class="marker:text-pink-500">
+                        Penggunaan Software Desain
+                    </li>
+                    <li class="marker:text-yellow-500">Kreativitas Desain</li>
+                </ul>
             </KetrampilanItem>
             <KetrampilanItem
-                icon="https://placehold.co/50"
+                icon="/ketrampilan/tbsm.webp"
                 title="Teknik Bisnis Sepeda Motor (TBSM)"
             >
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The king, seeing how much happier his subjects were,
-                    realized the error of his ways and repealed the joke tax.
+                <p class="mt-2 mb-4">
+                    Teknik dan Bisnis Sepeda Motor adalah mata pelajaran yang
+                    mempelajari tentang perbaikan dan perawatan sepeda motor.
                 </p>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full mt-4"
-                    defaultValue="item-1"
-                >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-semibold">
-                            Product Information
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                Our flagship product combines cutting-edge
-                                technology with sleek design. Built with premium
-                                materials, it offers unparalleled performance
-                                and reliability.
-                            </p>
-                            <p>
-                                Key features include advanced processing
-                                capabilities, and an intuitive user interface
-                                designed for both beginners and experts.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-semibold">
-                            Shipping Details
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We offer worldwide shipping through trusted
-                                courier partners. Standard delivery takes 3-5
-                                business days, while express shipping ensures
-                                delivery within 1-2 business days.
-                            </p>
-                            <p>
-                                All orders are carefully packaged and fully
-                                insured. Track your shipment in real-time
-                                through our dedicated tracking portal.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-semibold">
-                            Return Policy
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We stand behind our products with a
-                                comprehensive 30-day return policy. If
-                                you&apos;re not completely satisfied, simply
-                                return the item in its original condition.
-                            </p>
-                            <p>
-                                Our hassle-free return process includes free
-                                return shipping and full refunds processed
-                                within 48 hours of receiving the returned item.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <ul class="list-disc list-inside space-y-2">
+                    <li class="marker:text-gray-700">Perbaikan Mesin</li>
+                    <li class="marker:text-yellow-500">
+                        Perawatan Sistem Kelistrikan
+                    </li>
+                    <li class="marker:text-orange-500">Diagnosis Kerusakan</li>
+                </ul>
             </KetrampilanItem>
             <KetrampilanItem
-                icon="https://placehold.co/50"
+                icon="/ketrampilan/tbg.webp"
                 title="Tata Boga (TBG)"
                 reverse
             >
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The king, seeing how much happier his subjects were,
-                    realized the error of his ways and repealed the joke tax.
+                <p class="mt-2 mb-4">
+                    Tata Boga adalah mata pelajaran yang mempelajari tentang
+                    pengolahan makanan dan penyajian hidangan.
                 </p>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full mt-4"
-                    defaultValue="item-1"
-                >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-semibold">
-                            Product Information
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                Our flagship product combines cutting-edge
-                                technology with sleek design. Built with premium
-                                materials, it offers unparalleled performance
-                                and reliability.
-                            </p>
-                            <p>
-                                Key features include advanced processing
-                                capabilities, and an intuitive user interface
-                                designed for both beginners and experts.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-semibold">
-                            Shipping Details
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We offer worldwide shipping through trusted
-                                courier partners. Standard delivery takes 3-5
-                                business days, while express shipping ensures
-                                delivery within 1-2 business days.
-                            </p>
-                            <p>
-                                All orders are carefully packaged and fully
-                                insured. Track your shipment in real-time
-                                through our dedicated tracking portal.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-semibold">
-                            Return Policy
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We stand behind our products with a
-                                comprehensive 30-day return policy. If
-                                you&apos;re not completely satisfied, simply
-                                return the item in its original condition.
-                            </p>
-                            <p>
-                                Our hassle-free return process includes free
-                                return shipping and full refunds processed
-                                within 48 hours of receiving the returned item.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <ul class="list-disc list-inside space-y-2">
+                    <li class="marker:text-green-500">Pengolahan Makanan</li>
+                    <li class="marker:text-orange-500">Plating Hidangan</li>
+                    <li class="marker:text-red-500">Teknik Masak</li>
+                </ul>
             </KetrampilanItem>
             <KetrampilanItem
-                icon="https://placehold.co/50"
+                icon="/ketrampilan/tkkr.webp"
                 title="Tata Kecantikan Kulit dan Rambut (TKKR)"
             >
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The king, seeing how much happier his subjects were,
-                    realized the error of his ways and repealed the joke tax.
-                </p>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full mt-4"
-                    defaultValue="item-1"
-                >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-semibold">
-                            Product Information
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                Our flagship product combines cutting-edge
-                                technology with sleek design. Built with premium
-                                materials, it offers unparalleled performance
-                                and reliability.
-                            </p>
-                            <p>
-                                Key features include advanced processing
-                                capabilities, and an intuitive user interface
-                                designed for both beginners and experts.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-semibold">
-                            Shipping Details
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We offer worldwide shipping through trusted
-                                courier partners. Standard delivery takes 3-5
-                                business days, while express shipping ensures
-                                delivery within 1-2 business days.
-                            </p>
-                            <p>
-                                All orders are carefully packaged and fully
-                                insured. Track your shipment in real-time
-                                through our dedicated tracking portal.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-semibold">
-                            Return Policy
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We stand behind our products with a
-                                comprehensive 30-day return policy. If
-                                you&apos;re not completely satisfied, simply
-                                return the item in its original condition.
-                            </p>
-                            <p>
-                                Our hassle-free return process includes free
-                                return shipping and full refunds processed
-                                within 48 hours of receiving the returned item.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                
             </KetrampilanItem>
             <KetrampilanItem
-                icon="https://placehold.co/50"
+                icon="/ketrampilan/tbs.webp"
                 title="Tata Busana (TBS)"
                 reverse
             >
-                <p className="leading-7 [&:not(:first-child)]:mt-6">
-                    The king, seeing how much happier his subjects were,
-                    realized the error of his ways and repealed the joke tax.
-                </p>
-                <Accordion
-                    type="single"
-                    collapsible
-                    className="w-full mt-4"
-                    defaultValue="item-1"
-                >
-                    <AccordionItem value="item-1">
-                        <AccordionTrigger className="font-semibold">
-                            Product Information
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                Our flagship product combines cutting-edge
-                                technology with sleek design. Built with premium
-                                materials, it offers unparalleled performance
-                                and reliability.
-                            </p>
-                            <p>
-                                Key features include advanced processing
-                                capabilities, and an intuitive user interface
-                                designed for both beginners and experts.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-2">
-                        <AccordionTrigger className="font-semibold">
-                            Shipping Details
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We offer worldwide shipping through trusted
-                                courier partners. Standard delivery takes 3-5
-                                business days, while express shipping ensures
-                                delivery within 1-2 business days.
-                            </p>
-                            <p>
-                                All orders are carefully packaged and fully
-                                insured. Track your shipment in real-time
-                                through our dedicated tracking portal.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                    <AccordionItem value="item-3">
-                        <AccordionTrigger className="font-semibold">
-                            Return Policy
-                        </AccordionTrigger>
-                        <AccordionContent className="flex flex-col gap-4 text-balance">
-                            <p>
-                                We stand behind our products with a
-                                comprehensive 30-day return policy. If
-                                you&apos;re not completely satisfied, simply
-                                return the item in its original condition.
-                            </p>
-                            <p>
-                                Our hassle-free return process includes free
-                                return shipping and full refunds processed
-                                within 48 hours of receiving the returned item.
-                            </p>
-                        </AccordionContent>
-                    </AccordionItem>
-                </Accordion>
+                <p class="mt-2 mb-4">
+      Tata Busana adalah mata pelajaran yang mempelajari tentang desain dan
+      pembuatan busana.
+    </p>
+    <ul class="list-disc list-inside space-y-2">
+      <li class="marker:text-indigo-500">Desain Busana</li>
+      <li class="marker:text-teal-500">Pembuatan Pola</li>
+      <li class="marker:text-pink-500">Teknik Menjahit</li>
+    </ul>
             </KetrampilanItem>
         </Page>
     );

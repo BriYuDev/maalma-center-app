@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { SiWhatsapp } from "@icons-pack/react-simple-icons";
+import ReactMarkdown from "react-markdown";
 
 export function ChatWidget() {
     const openWhatsApp = () => {
@@ -20,10 +21,33 @@ export function ChatWidget() {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         {
-            id: "1",
-            content: "Hi! How can I help you today?",
+            role: "system",
+            content: `
+    Anda adalah Cendekia, asisten AI resmi untuk website sekolah MA Ma'arif Udanawu Blitar. Misi utama Anda adalah untuk memberikan informasi yang akurat, jelas, dan ramah kepada seluruh komunitas sekolah: siswa, orang tua, guru, dan calon siswa.
+
+    **Kepribadian dan Nada Bicara:**
+    - **Profesional dan Terpercaya:** Selalu berikan informasi yang bersumber dari data resmi sekolah.
+    - **Ramah dan Mendukung:** Gunakan bahasa yang sopan, hangat, dan mudah dipahami. Sapa pengguna dengan "Anda" atau "Bapak/Ibu".
+    - **Sabar dan Membantu:** Jawab setiap pertanyaan dengan jelas dan jangan ragu untuk memberikan penjelasan tambahan jika diperlukan.
+    - **Antusias:** Tunjukkan semangat dan kebanggaan terhadap sekolah.
+
+    **Tugas Utama Anda:**
+    1.  **Menjawab Pertanyaan:** Berikan jawaban mengenai pendaftaran siswa baru, kalender akademik, kurikulum, kegiatan ekstrakurikuler, fasilitas, dan informasi umum lainnya.
+    2.  **Membantu Navigasi:** Pandu pengguna untuk menemukan halaman atau informasi spesifik di dalam website.
+    3.  **Memberikan Kontak:** Jika Anda tidak bisa menjawab atau pertanyaan bersifat sangat spesifik (misalnya terkait data pribadi), arahkan pengguna ke departemen yang tepat (misalnya: "Untuk informasi lebih lanjut mengenai biaya, silakan hubungi bagian administrasi kami di...").
+
+    **Batasan:**
+    - Jangan memberikan opini pribadi.
+    - Jangan pernah membagikan informasi pribadi atau sensitif mengenai siswa atau staf.
+    - Jika tidak tahu jawabannya, akui dengan jujur dan tawarkan untuk mengarahkan ke sumber yang benar.
+
+    Tujuan akhir Anda adalah menjadi wajah digital sekolah yang membantu, informatif, dan dapat diandalkan.
+  `,
+        },
+        {
             role: "assistant",
-            timestamp: new Date(),
+            content:
+                "Halo! Selamat datang di website sekolah kami. Ada yang bisa saya bantu hari ini? Jangan ragu untuk bertanya, saya siap membantu...",
         },
     ]);
     const [inputValue, setInputValue] = useState("");
@@ -41,44 +65,35 @@ export function ChatWidget() {
     const handleSendMessage = async () => {
         if (!inputValue.trim() || isLoading) return;
 
-        const userMessage = {
-            id: Date.now().toString(),
-            content: inputValue,
-            role: "user",
-            timestamp: new Date(),
-        };
-
-        setMessages((prev) => [...prev, userMessage]);
-        setInputValue("");
+        const userMessage = { role: "user", content: inputValue };
+        const newMessages = [...messages, userMessage]; // Tambahkan pesan baru pengguna
+        setMessages(newMessages); // Update UI
+        setInputValue(""); // Kosongkan input field
         setIsLoading(true);
 
         try {
-            const response = await fetch("/api/chat", {
+            const res = await fetch("/api/chat", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: userMessage.content }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                // Kirim seluruh riwayat percakapan (termasuk pesan baru user)
+                body: JSON.stringify({ history: newMessages }),
             });
 
-            if (!response.ok) throw new Error("Failed to get response");
+            const data = await res.json();
 
-            const data = await response.json();
-
-            const assistantMessage = {
-                id: (Date.now() + 1).toString(),
-                content: data.response,
-                role: "assistant",
-                timestamp: new Date(),
-            };
-
-            setMessages((prev) => [...prev, assistantMessage]);
+            if (data.reply) {
+                // Tambahkan balasan dari bot ke riwayat percakapan
+                setMessages((prevMessages) => [...prevMessages, data.reply]);
+            }
         } catch (error) {
+            console.error("Gagal mengambil balasan:", error);
             const errorMessage = {
-                id: (Date.now() + 1).toString(),
-                content: "Sorry, something went wrong. Please try again.",
                 role: "assistant",
-                timestamp: new Date(),
+                content: "Maaf, terjadi kesalahan.",
             };
-            setMessages((prev) => [...prev, errorMessage]);
+            setMessages((prevMessages) => [...prevMessages, errorMessage]);
         } finally {
             setIsLoading(false);
         }
@@ -114,7 +129,7 @@ export function ChatWidget() {
 
             {isOpen && (
                 <div className="animate-in slide-in-from-bottom-2 duration-200">
-                    <Card className="w-80 h-96 shadow-xl border border-slate-200 bg-white overflow-hidden py-0 gap-0">
+                    <Card className="w-90 h-96 shadow-xl border border-slate-200 bg-white overflow-hidden py-0 gap-0">
                         <div className="bg-white border-b border-slate-100 p-4">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center space-x-3">
@@ -136,28 +151,33 @@ export function ChatWidget() {
                             </div>
                         </div>
 
-                        <ScrollArea className="flex-1 p-4 h-64">
+                        <ScrollArea className="flex-1 px-3 h-64">
                             <div className="space-y-4">
-                                {messages.map((message) => (
-                                    <div
-                                        key={message.id}
-                                        className={`flex ${
-                                            message.role === "user"
-                                                ? "justify-end"
-                                                : "justify-start"
-                                        }`}
-                                    >
-                                        <div
-                                            className={`max-w-[80%] px-3 py-2 rounded-lg text-sm ${
-                                                message.role === "user"
-                                                    ? "bg-slate-900 text-white"
-                                                    : "bg-slate-100 text-slate-900"
-                                            }`}
-                                        >
-                                            {message.content}
-                                        </div>
-                                    </div>
-                                ))}
+                                {messages.map(
+                                    (message, i) =>
+                                        message.role != "system" && (
+                                            <div
+                                                key={i}
+                                                className={`mt-4 flex ${
+                                                    message.role === "user"
+                                                        ? "justify-end"
+                                                        : "justify-start"
+                                                }`}
+                                            >
+                                                <div
+                                                    className={`max-w-[80%] px-3 py-2 rounded-lg text-sm ${
+                                                        message.role === "user"
+                                                            ? "bg-slate-900 text-white"
+                                                            : "bg-slate-100 text-slate-900"
+                                                    }`}
+                                                >
+                                                    <ReactMarkdown>
+                                                        {message.content}
+                                                    </ReactMarkdown>
+                                                </div>
+                                            </div>
+                                        )
+                                )}
                                 {isLoading && (
                                     <div className="flex justify-start">
                                         <div className="bg-slate-100 px-3 py-2 rounded-lg">

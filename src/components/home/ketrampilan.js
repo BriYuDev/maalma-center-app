@@ -127,7 +127,7 @@ export default function KetrampilanSection(){
                             </div>
                             <div className="flex flex-row justify-center gap-4">
                                 {[
-                                    "/ketrampilan/tkr.webp",
+                                    "/ketrampilan/tkkr.webp",
                                     "/ketrampilan/tbs.webp",
                                     "/ketrampilan/tbg.webp",
                                 ].map((src, i) => (

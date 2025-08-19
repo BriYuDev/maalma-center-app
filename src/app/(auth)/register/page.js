@@ -47,7 +47,7 @@ export default function RegisterPage() {
             </Head>
             <div className="min-h-screen relative flex items-center justify-center p-4">
                 <div className="absolute inset-0 bg-black/20" />
-                <div className="absolute inset-0 bg-[url('/auth_bg.png')] opacity-10" />
+                <div className="absolute inset-0 bg-[url('/auth_bg.webp')] bg-cover bg-center opacity-50" />
 
                 <Card className="w-full max-w-md relative z-10 shadow-2xl border bg-white/95 backdrop-blur-sm">
                     <CardHeader className="text-center pb-2">
@@ -201,15 +201,15 @@ export default function RegisterPage() {
 
                             <Button
                                 type="submit"
-                                className="w-full bg-black hover:bg-gray-800 text-white"
+                                className="w-full"
                                 disabled={!passwordValid || !passwordsMatch}
                                 asChild
                             >
-                                <Link href="/register">Daftar</Link>
+                                <Link href="/dashboard/casis">Daftar</Link>
                             </Button>
                         </form>
 
-                        <div className="text-center">
+                        <div className="text-center text-sm">
                             <p className="text-gray-600">
                                 Sudah punya akun?{" "}
                                 <Link

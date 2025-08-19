@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { desc } from "motion/dist/react-client"
+import { desc } from "motion/react-client"
 
 export default function DashboardContent({ title, description, className, children, ...props }) {
     return (
