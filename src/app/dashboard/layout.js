@@ -3,6 +3,7 @@ import DashboardSidebar from "@/components/dashboard/sidebar";
 import DashboardWrapper from "@/components/dashboard/wrapper";
 import { cn } from "@/lib/utils";
 
+
 export default function DashboardLayout({ children }) {
     return (
         <DashboardWrapper>

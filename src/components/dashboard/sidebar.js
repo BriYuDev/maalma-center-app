@@ -5,29 +5,101 @@ import { Button } from "@/components/ui/button";
 import { Home, BarChart3, Users, Settings } from "lucide-react";
 import { useState } from "react";
 import { useSidebar } from "./wrapper";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
-const items = [
+
+const sidebarItems = [
     {
-        title: "Dashboard",
-        icon: Home,
-        active: true,
+        path : "/dashboard",
+        items : [
+            {
+                title: "Dashboard",
+                icon: Home,
+                path : "/dashboard",
+            },
+            {
+                title: "Artikel",
+                icon: BarChart3,
+                path : "/dashboard/artikel",
+            },
+        ]
     },
     {
-        title: "Analytics",
-        icon: BarChart3,
+        path : "/dashboard/artikel",
+        items : [
+            {
+                title: "Dashboard",
+                icon: Home,
+                path : "/dashboard",
+            },
+            {
+                title: "Artikel",
+                icon: BarChart3,
+                path : "/dashboard/artikel",
+            },
+        ]
     },
     {
-        title: "Users",
-        icon: Users,
+        path : "/dashboard/ortu",
+        items : [
+            {
+                title: "Dashboard",
+                icon: Home,
+                active: true,
+            },
+            {
+                title: "Analytics",
+                icon: BarChart3,
+            },
+            {
+                title: "Users",
+                icon: Users,
+            },
+            {
+                title: "Settings",
+                icon: Settings,
+            },
+        ]
     },
     {
-        title: "Settings",
-        icon: Settings,
+        path : "/dashboard/casis",
+        items : [
+            {
+                title: "Dashboard",
+                icon: Home,
+                active: true,
+            },
+            {
+                title: "Analytics",
+                icon: BarChart3,
+            },
+            {
+                title: "Users",
+                icon: Users,
+            },
+            {
+                title: "Settings",
+                icon: Settings,
+            },
+        ]
     },
 ];
 
 export default function DashboardSidebar({ className }) {
     const [sidebarOpen, setSidebarOpen] = useSidebar();
+    const pathname = usePathname();
+
+    let currentItems = [
+        {
+            title: "Not Found",
+            path: "/dashboard",
+        }
+    ]
+
+    sidebarItems.map((v) => (
+        currentItems = pathname == v.path ? v.items : currentItems
+    ))
 
     return (
         <>
@@ -49,22 +121,25 @@ export default function DashboardSidebar({ className }) {
                         </h2>
 
                         <nav className="flex flex-col gap-2 [&>*]:w-full">
-                            {items.map((item) => (
-                                <Button
-                                    key={item.title}
-                                    variant={
-                                        item.active ? "secondary" : "ghost"
-                                    }
-                                    className={cn(
-                                        "w-full justify-start gap-3 shadow-none",
-                                        item.active
-                                            ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-800"
-                                            : "text-gray-400 hover:bg-gray-900 hover:text-white"
-                                    )}
-                                >
-                                    <item.icon className="h-4 w-4" />
-                                    {item.title}
-                                </Button>
+                            {currentItems.map((item) => (
+                                <Link key={item.title} href={item.path ? item.path : ""}>
+                                    <Button
+                                        key={item.title}
+                                        variant={
+                                            pathname == item.path ? "secondary" : "ghost"
+                                        }
+                                        className={cn(
+                                            "w-full justify-start gap-3 shadow-none",
+                                            pathname == item.path
+                                                ? "bg-gray-800 text-white border border-gray-600 hover:bg-gray-800"
+                                                : "text-gray-400 hover:bg-gray-900 hover:text-white"
+                                        )}
+                                    >
+                                        {item.icon ? <item.icon className="h-4 w-4" /> : <Settings className="h-4 w-4"/>}
+                                        {/* <item.icon className="h-4 w-4" /> */}
+                                        {item.title}
+                                    </Button>
+                                </Link>
                             ))}
                         </nav>
                     </div>
