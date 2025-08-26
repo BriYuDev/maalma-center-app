@@ -21,15 +21,15 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import {
-    Sheet,
-    SheetClose,
-    SheetContent,
-    SheetDescription,
-    SheetFooter,
-    SheetHeader,
-    SheetTitle,
-    SheetTrigger,
-} from "@/components/ui/sheet";
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+    DialogFooter,
+    DialogClose,
+  } from "@/components/ui/dialog"
 import { Checkbox } from "@/components/ui/checkbox"
 import { CircleCheck, CircleAlert, CircleX, EllipsisVertical, ChevronDownIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar"
@@ -109,8 +109,8 @@ let cloneCheckState = new Array(5).fill(false);
 
 export const DeleteAllButton = () => {
     return (
-        <div className="mr-[0.5vw]">
-            <Button className={cn(cloneCheckState.find((value) => {return value == true}) ? "" : "hidden")} variant="destructive">Hapus</Button>
+        <div className="mx-4">
+            <Button disabled={cloneCheckState.find((value) => {return value == true}) == undefined} variant="destructive">Hapus</Button>
         </div>
     )
 };
@@ -121,7 +121,7 @@ export const ArticleTable = () => {
     const [selectAllState, setSelectAllState] = React.useState(false);
     return (
         <div>
-            <div className="flex justify-end mb-[1vh]">
+            <div className="flex justify-end mb-4">
             <DeleteAllButton/>
             <UploadButton/>
             </div>
@@ -166,17 +166,17 @@ export const ArticleTable = () => {
                                     />
                                 </TableHead>
 
-                                <Sheet>
-                                    <SheetTrigger asChild>
+                                <Dialog>
+                                    <DialogTrigger asChild>
                                         <TableCell>{value.judul}</TableCell>
-                                    </SheetTrigger>
-                                    <SheetContent>
-                                        <SheetHeader>
-                                            <SheetTitle>Detail Artikel</SheetTitle>
-                                            <SheetDescription>
+                                    </DialogTrigger>
+                                    <DialogContent>
+                                        <DialogHeader>
+                                            <DialogTitle>Detail Artikel</DialogTitle>
+                                            <DialogDescription>
                                                 Ubah artikel sesuai keinginanmu.
-                                            </SheetDescription>
-                                        </SheetHeader>
+                                            </DialogDescription>
+                                        </DialogHeader>
                                         <div className="grid flex-1 auto-rows-min gap-6 px-4">
                                             <div className="grid gap-3">
                                                 <Label htmlFor="sheet-demo-name">Judul</Label>
@@ -187,15 +187,15 @@ export const ArticleTable = () => {
                                             </div>
                                         </div>
 
-                                        <SheetFooter className="w-full">
+                                        <DialogFooter className="w-full">
                                             <ButtonAuto className="w-full" type="submit">Simpan</ButtonAuto>
                                             <ButtonAuto className="w-full" variant="destructive">Hapus</ButtonAuto>
-                                            <SheetClose asChild>
+                                            <DialogClose asChild>
                                                 <ButtonAuto className="w-full" variant="outline">Tutup</ButtonAuto>
-                                            </SheetClose>
-                                        </SheetFooter>
-                                    </SheetContent>
-                                </Sheet>
+                                            </DialogClose>
+                                        </DialogFooter>
+                                    </DialogContent>
+                                </Dialog>
 
                                 <TableCell>{capitalize(formatNatural(value.tanggal))}</TableCell>
                                 <TableCell className="flex items-center justify-right">
